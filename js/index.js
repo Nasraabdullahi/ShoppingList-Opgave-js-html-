@@ -1,26 +1,37 @@
-//Write your Javascript code here
-console.log("Shoppinglist")
+//  Shoppinglist DOM-manipulation
+console.log("Shoppinglist");
 
-//Write your Javascript code here
-console.log("Shoppinglist")
-// Funktion til at oprette et nyt <li>-element
+// Task 1: Funktion til at oprette et nyt <li>-element
 function lavLi(klasse, id, tekst) {
-  const li = document.createElement("li");             
-  li.setAttribute("class", klasse);                     
-  li.setAttribute("id", id);                           
+// Opret <li>
+  const li = document.createElement("li");
+  // Tilføj class             
+  li.setAttribute("class", klasse);   
+  // Tilføj id                 
+  li.setAttribute("id", id);  
+  // Opret tekstnode                         
   const tekstNode = document.createTextNode(tekst);    
-  li.appendChild(tekstNode);                            
-  return li;                                           
+  // Tilføj tekst til <li>
+  li.appendChild(tekstNode);
+// Returnér <li>                           
+  return li;                                       
 }
 
-// Tilføjer et nyt element til listen
-const liste = document.getElementById("listUnhealthy");
+//Task 2: Funktion til at tilføje <li> til en liste
+function tilføjTilListe(listeId, liElement) {
+// Find liste med id
+  const liste = document.getElementById(listeId);      
+  if (!liste) {
+    console.error(`Liste med id '${listeId}' blev ikke fundet.`);
+    return;
+  }
+  // Tilføj <li> til listen
+  liste.appendChild(liElement);                        
+}
+
+//Eksempel: Tilføj "Chips" til den usunde liste
 const nyUgesynd = lavLi("unhealthy", "5", "Chips");
-liste.appendChild(nyUgesynd);
-
-
-
-
+tilføjTilListe("listUnhealthy", nyUgesynd);
 
 
 
