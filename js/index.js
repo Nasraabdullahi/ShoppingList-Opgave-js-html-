@@ -29,9 +29,11 @@ function tilføjTilListe(listeId, liElement) {
   liste.appendChild(liElement);                        
 }
 
+
 //Eksempel: Tilføj "Chips" til den usunde liste
 const nyUgesynd = lavLi("unhealthy", "5", "Chips");
 tilføjTilListe("listUnhealthy", nyUgesynd);
+
 
 
   // Task 3: Skift eller tilføj class-attribut
@@ -44,6 +46,18 @@ function skiftKlasse(element, nyKlasse) {
   // Test Task 3
   const liToUpdate = document.getElementById("2"); // Beer
   skiftKlasse(liToUpdate, "healthy");             // Skifter class til "healthy"
+
+ // Test Task 4
+  function sletLiElement(element) {
+    if (element && element.parentNode) {
+      element.parentNode.removeChild(element);
+    }
+  }
+
+  // Marshmallows
+const liToDelete = document.getElementById("0"); 
+ // sletter Marshmallows fra listen
+sletLiElement(liToDelete);                      
   
 
 
